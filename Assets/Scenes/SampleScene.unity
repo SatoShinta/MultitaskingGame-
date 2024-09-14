@@ -631,8 +631,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3394a55e37661aa438800a2cd7060e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qText: {fileID: 858425657}
-  aText: {fileID: 1124631542}
+  _qText: {fileID: 858425657}
+  _answerNumber: 
+  _inputText: 
 --- !u!4 &1303388630
 Transform:
   m_ObjectHideFlags: 0
