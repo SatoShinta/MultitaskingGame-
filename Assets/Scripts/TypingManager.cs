@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class TypingManager : MonoBehaviour
 {
+    [SerializeField] TypingGageManager typingGageManager;
+
     [SerializeField, Header("問題文")] Text _qText;
     [SerializeField, Header("答え")] Text _aText;
 
@@ -16,6 +18,8 @@ public class TypingManager : MonoBehaviour
     void Update()
     {
         _aText.text = _inputText;
+        // ゲーム画面の上でマウスをクリックするとエラーが出るのでそれの対処
+        if (Input.GetMouseButtonDown(0)) return;
 
         //テンキーの数字部分か1～9までの数字キーが押されたとき以下の処理
         if (Input.anyKeyDown && char.IsDigit(Input.inputString[0]))
@@ -44,13 +48,17 @@ public class TypingManager : MonoBehaviour
                     _aText.text = _inputText;
                 }
             }
-
-            //文字数と内容がすべて一致したら
-            if (_inputText.Length == _answerNumber.Length &&_inputText == _answerNumber)
+            else if (Input.anyKeyDown)
             {
-                QuestionNumber();
-                _inputText = "";
+                Debug.Log("数字で入力してください");
             }
+        }
+        //文字数と内容がすべて一致したら
+        if (typingGageManager._timeOver == true || (_inputText.Length == _answerNumber.Length && _inputText == _answerNumber))
+        {
+            QuestionNumber();
+            _inputText = "";
+            typingGageManager._timerReset = true;
         }
     }
 

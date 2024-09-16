@@ -7,11 +7,12 @@ public class TypingGageManager : MonoBehaviour
     [SerializeField] GameObject _timerGauge;
 
     [SerializeField, Header("制限時間")] float _timerLimit = 1f; // 1単位のゲージを減らすのにかかる時間 (秒)
-    [SerializeField]Gradient _gradient; //色のグラデーションを変更してくれるやつ
+    [SerializeField] Gradient _gradient; //色のグラデーションを変更してくれるやつ
 
     private float _timer;
     public bool _gameStart;
     public bool _timerReset;
+    public bool _timeOver;
     Image _gaugeImage;
 
     void Start()
@@ -38,11 +39,18 @@ public class TypingGageManager : MonoBehaviour
 
             // 制限時間に近づくにつれて色が変化していくようにした
             _gaugeImage.color = _gradient.Evaluate(_timer / _timerLimit);
-            if(_timerReset == true)
+            if (_timer >= _timerLimit)
+            {
+                _timeOver = true;
+            }
+
+            if (_timerReset == true)
             {
                 _timerReset = false;
+                _timeOver = false;
                 _timer = 0;
             }
         }
+       
     }
 }

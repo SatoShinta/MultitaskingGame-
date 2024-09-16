@@ -816,6 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3394a55e37661aa438800a2cd7060e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typingGageManager: {fileID: 1303388631}
   _qText: {fileID: 858425657}
   _aText: {fileID: 1124631542}
   _answerNumber: 
@@ -957,5 +958,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 262234248}
-  - {fileID: 2119290981}
   - {fileID: 1303388630}
+  - {fileID: 2119290981}
