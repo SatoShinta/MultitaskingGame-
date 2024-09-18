@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7040291468244647002}
   - component: {fileID: 1810542193627357838}
   - component: {fileID: 6065118941974895528}
+  - component: {fileID: 6902061442445581297}
   m_Layer: 0
   m_Name: Letter 1
   m_TagString: Untagged
@@ -186,7 +187,9 @@ MonoBehaviour:
   stamps:
   - {fileID: 6015213775980593464}
   spriteRenderers: []
-  clickCount: 0
+  letterSpownManager: {fileID: 0}
+  stampOK: 1
+  isDrag: 0
 --- !u!61 &6065118941974895528
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -232,3 +235,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &6902061442445581297
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800408687427937984}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
