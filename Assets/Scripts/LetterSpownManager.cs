@@ -6,12 +6,17 @@ public class LetterSpownManager : MonoBehaviour
 
     void Start()
     {
-        int test = Random.Range(0, letters.Length);
-        Instantiate(letters[test]);
+        SpownLetter();
     }
 
     void Update()
     {
 
+    }
+
+    public void SpownLetter()
+    {
+        int test = Random.Range(0, letters.Length);
+        Instantiate(letters[test]);
     }
 }
