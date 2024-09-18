@@ -51,6 +51,6 @@ public class TypingGageManager : MonoBehaviour
                 _timer = 0;
             }
         }
-       
+
     }
 }
