@@ -22,6 +22,15 @@ public class LetterSpownManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 手紙をスポーンさせるメソッド(スタンプの数を増やす）
+    /// </summary>
+    public void SpownLetter(int stp)
+    {
+        int test = Random.Range(stp, letters.Length);
+        Instantiate(letters[test]);
+    }
+
+    /// <summary>
     /// スタンプを押すだけ
     /// </summary>
     public void Stamp()
