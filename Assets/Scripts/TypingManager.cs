@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class TypingManager : MonoBehaviour
 {
     [SerializeField] TypingGageManager typingGageManager;
+    [SerializeField] LetterSpownManager letterSpownManager;
 
     [SerializeField, Header("問題文")] Text _qText;
     [SerializeField, Header("答え")] Text _aText;
@@ -53,10 +54,17 @@ public class TypingManager : MonoBehaviour
                 Debug.Log("数字で入力してください");
             }
         }
-        //文字数と内容がすべて一致したら
+        //文字数と内容がすべて一致するか、制限じかんを過ぎたら新しい問題を出す
         if (typingGageManager._timeOver == true || (_inputText.Length == _answerNumber.Length && _inputText == _answerNumber))
         {
             QuestionNumber();
+            _inputText = "";
+            typingGageManager._timerReset = true;
+        }
+        else if (_inputText.Length == _answerNumber.Length && _inputText == _answerNumber)
+        {
+            QuestionNumber();
+            letterSpownManager?.SpownLetter(1);
             _inputText = "";
             typingGageManager._timerReset = true;
         }
