@@ -6,6 +6,8 @@ public class LetterSpownManager : MonoBehaviour
     [SerializeField] GameObject nowLetters;
     [SerializeField] GameObject nextLetters;
     [SerializeField, Header("ŽŸ‚ÌŽèŽ†")] GameObject NLP;
+    [SerializeField] Sprite[] letterSprites;
+    SpriteRenderer letterSpriterenderer;
     public int clickCount = 0;
     public int spownLetter = 0;
     public int test;
@@ -13,6 +15,7 @@ public class LetterSpownManager : MonoBehaviour
 
     void Start()
     {
+        letterSpriterenderer = NLP.GetComponent<SpriteRenderer>();
         SpownLetter();
     }
 
@@ -39,8 +42,11 @@ public class LetterSpownManager : MonoBehaviour
         }
         test2 = Random.Range(0, letters.Length);
         nextLetters = letters[test2];
-        GameObject NEXTLETTER = Instantiate(nextLetters, NLP.transform.position, Quaternion.identity);
-        NEXTLETTER.transform.localScale = new Vector3(1.5f, 1f, 1f);
+
+        letterSpriterenderer.sprite = letterSprites[test2];
+
+        //GameObject NEXTLETTER = Instantiate(nextLetters, NLP.transform.position, Quaternion.identity);
+        //NEXTLETTER.transform.localScale = new Vector3(1.5f, 1f, 1f);
     }
 
     /// <summary>
