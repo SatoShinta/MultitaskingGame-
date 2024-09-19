@@ -50,7 +50,7 @@ public class ClickGameManager : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Collision with: " + collision.gameObject.name);
-        if (isDrag == true && letterSpownManager.clickCount == stamps.Length && collision.gameObject.tag == ("kuti"))
+        if (isDrag && letterSpownManager.clickCount == stamps.Length && collision.gameObject.tag == ("kuti"))
         {
             LetterDestroy();
         }
@@ -87,5 +87,5 @@ public class ClickGameManager : MonoBehaviour
         isDrag = false;
     }
 
-    
+
 }
