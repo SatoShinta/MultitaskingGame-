@@ -47,7 +47,7 @@ public class ClickGameManager : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("Collision with: " + collision.gameObject.name);
         if (isDrag && letterSpownManager.clickCount == stamps.Length && collision.gameObject.tag == ("kuti"))
@@ -76,7 +76,7 @@ public class ClickGameManager : MonoBehaviour
         dragTimer += Time.deltaTime;
         if (dragTimer > 0.1f)
         {
-            isDrag = true;
+            isDrag = false;
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = mousePos + offset;
         }
@@ -84,7 +84,7 @@ public class ClickGameManager : MonoBehaviour
 
     public void OnMouseUp()
     {
-        isDrag = false;
+        isDrag = true;
     }
 
 
