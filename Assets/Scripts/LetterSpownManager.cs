@@ -5,6 +5,7 @@ public class LetterSpownManager : MonoBehaviour
     [SerializeField] GameObject[] letters;
     [SerializeField] GameObject nowLetters;
     [SerializeField] GameObject nextLetters;
+    [SerializeField, Header("ŽŸ‚ÌŽèŽ†")] GameObject NLP;
     public int clickCount = 0;
     public int spownLetter = 0;
     public int test;
@@ -38,6 +39,8 @@ public class LetterSpownManager : MonoBehaviour
         }
         test2 = Random.Range(0, letters.Length);
         nextLetters = letters[test2];
+        GameObject NEXTLETTER = Instantiate(nextLetters, NLP.transform.position, Quaternion.identity);
+        NEXTLETTER.transform.localScale = new Vector3(1.5f, 1f, 1f);
     }
 
     /// <summary>
@@ -45,15 +48,21 @@ public class LetterSpownManager : MonoBehaviour
     /// </summary>
     public void SpownLetter(int stp)
     {
-        int test = Random.Range(stp, letters.Length);
-        int test2 = Random.Range(stp, letters.Length);
-        Instantiate(letters[test]);
+        if (nowLetters == null)
+        {
+            test = Random.Range(stp, letters.Length);
+            nowLetters = letters[test];
+            Instantiate(nowLetters);
+        }
+        else
+        {
+            nowLetters = nextLetters;
+            Instantiate(nowLetters);
+        }
+        test2 = Random.Range(stp, letters.Length);
+        nextLetters = letters[test2];
     }
 
-    public void NextLetter(GameObject letter)
-    {
-
-    }
 
     /// <summary>
     /// ƒXƒ^ƒ“ƒv‚ð‰Ÿ‚·‚¾‚¯
