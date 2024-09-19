@@ -42,31 +42,25 @@ public class LetterSpownManager : MonoBehaviour
         }
         test2 = Random.Range(0, letters.Length);
         nextLetters = letters[test2];
-
         letterSpriterenderer.sprite = letterSprites[test2];
-
-        //GameObject NEXTLETTER = Instantiate(nextLetters, NLP.transform.position, Quaternion.identity);
-        //NEXTLETTER.transform.localScale = new Vector3(1.5f, 1f, 1f);
     }
 
     /// <summary>
     /// 手紙をスポーンさせるメソッド(スタンプの数を増やす）
     /// </summary>
-    public void SpownLetter(int stp)
+    public void SpownLetter2(int stp)
     {
-        if (nowLetters == null)
+        Debug.Log("aaaaa");
+        if (test2 <= 2)
         {
-            test = Random.Range(stp, letters.Length);
-            nowLetters = letters[test];
-            Instantiate(nowLetters);
+            test2 = Random.Range(stp, letters.Length);
+            nextLetters = letters[test2];
+            letterSpriterenderer.sprite = letterSprites[test2];
         }
-        else
-        {
-            nowLetters = nextLetters;
-            Instantiate(nowLetters);
-        }
-        test2 = Random.Range(stp, letters.Length);
-        nextLetters = letters[test2];
+        //test2 = Random.Range(stp, letters.Length);
+        //nextLetters = letters[test2];
+
+        //letterSpriterenderer.sprite = letterSprites[test2];
     }
 
 

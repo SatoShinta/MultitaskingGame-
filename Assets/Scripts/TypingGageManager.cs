@@ -29,7 +29,7 @@ public class TypingGageManager : MonoBehaviour
         if (_gameStart)
         {
             _timer += Time.deltaTime;
-            Debug.Log(_timer);
+            //  Debug.Log(_timer);
 
             // _timerGauge‚Ì•‚ğŒvZ
             float gaugeWidth = Mathf.Max(0, _backGauge.GetComponent<RectTransform>().sizeDelta.x - (_timer / _timerLimit * _backGauge.GetComponent<RectTransform>().sizeDelta.x));

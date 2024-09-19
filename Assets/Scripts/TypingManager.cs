@@ -55,7 +55,7 @@ public class TypingManager : MonoBehaviour
             }
         }
         //文字数と内容がすべて一致するか、制限じかんを過ぎたら新しい問題を出す
-        if (typingGageManager._timeOver == true || (_inputText.Length == _answerNumber.Length && _inputText == _answerNumber))
+        if (typingGageManager._timeOver == true)
         {
             QuestionNumber();
             _inputText = "";
@@ -64,7 +64,7 @@ public class TypingManager : MonoBehaviour
         else if (_inputText.Length == _answerNumber.Length && _inputText == _answerNumber)
         {
             QuestionNumber();
-            letterSpownManager?.SpownLetter(1);
+            letterSpownManager?.SpownLetter2(3);
             _inputText = "";
             typingGageManager._timerReset = true;
         }
