@@ -33,12 +33,12 @@ public class LetterSpownManager : MonoBehaviour
         {
             test = Random.Range(0, letters.Length);
             nowLetters = letters[test];
-            Instantiate(nowLetters);
+            Instantiate(nowLetters, this.transform.position, Quaternion.identity);
         }
         else
         {
             nowLetters = nextLetters;
-            Instantiate(nowLetters);
+            Instantiate(nowLetters, this.transform.position, Quaternion.identity);
         }
         test2 = Random.Range(0, letters.Length);
         nextLetters = letters[test2];
