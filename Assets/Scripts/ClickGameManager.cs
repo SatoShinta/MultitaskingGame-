@@ -11,6 +11,7 @@ public class ClickGameManager : MonoBehaviour
     public bool stampOK;
     public bool isDrag;
     Vector3 offset;
+    Vector3 startPos;
 
     public void Start()
     {
@@ -20,6 +21,8 @@ public class ClickGameManager : MonoBehaviour
         {
             spriteRenderers[i] = stamps[i].GetComponent<SpriteRenderer>();
         }
+
+        startPos = transform.position;
     }
 
     public void Update()
@@ -85,6 +88,10 @@ public class ClickGameManager : MonoBehaviour
     public void OnMouseUp()
     {
         isDrag = true;
+        if (letterSpownManager.clickCount != stamps.Length)
+        {
+            transform.position = startPos;
+        }
     }
 
 
