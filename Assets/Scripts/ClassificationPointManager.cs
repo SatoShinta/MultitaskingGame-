@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClassificationPointManager : MonoBehaviour
@@ -11,7 +9,7 @@ public class ClassificationPointManager : MonoBehaviour
 
     void Start()
     {
-       
+
     }
 
     void Update()
@@ -31,5 +29,8 @@ public class ClassificationPointManager : MonoBehaviour
     public void CompletedLettersSpown()
     {
         Instantiate(CompletedLetters[0], this.transform.position, Quaternion.identity);
+
     }
+
+
 }
