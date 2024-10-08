@@ -5,6 +5,7 @@ public class ClickGameManager : MonoBehaviour
     [SerializeField] GameObject[] stamps;
     [SerializeField] SpriteRenderer[] spriteRenderers;
     [SerializeField] LetterSpownManager letterSpownManager;
+    [SerializeField] ClassificationPointManager classificationPointManager;
 
     float dragTimer = 0;
     int previousClicCount = 0;
@@ -15,6 +16,7 @@ public class ClickGameManager : MonoBehaviour
 
     public void Start()
     {
+        classificationPointManager = FindObjectOfType<ClassificationPointManager>();
         letterSpownManager = FindFirstObjectByType<LetterSpownManager>();
         spriteRenderers = new SpriteRenderer[stamps.Length];
         for (int i = 0; i < stamps.Length; i++)
@@ -64,6 +66,7 @@ public class ClickGameManager : MonoBehaviour
         Destroy(this.gameObject);
         letterSpownManager.SpownLetter();
         letterSpownManager.clickCount = 0;
+        classificationPointManager.Completed = true;
     }
 
 
